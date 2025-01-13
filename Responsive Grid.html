@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Grid</title>
+</head>
+
+<body>
+    <!-- Styles go here -->
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            padding: 50px;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            padding-bottom: 50px;
+        }
+
+        h2 {
+            color: white;
+            padding: 10px;
+        }
+
+        p {
+            color: rgb(181, 181, 181);
+        }
+
+        .grid-container {
+            display: grid;
+            /* border: 1px solid rgb(255, 85, 85); */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* repeat (number of rows, min width, max width 1fr means 1 fraction will cover the whole screen) */
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .card {
+            border-radius: 3px;
+            background-color: rgb(48, 48, 48);
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+    <!-- Main code goes here -->
+    <h1>Responsive Grid</h1>
+    <div class="grid-container">
+
+        <div class="card">
+            <h2>Lorem, ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Modi, necessitatibus?</p>
+        </div>
+        <div class="card">
+            <h2>Lorem, ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Modi, necessitatibus?</p>
+        </div>
+        <div class="card">
+            <h2>Lorem, ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Modi, necessitatibus?</p>
+        </div>
+        <div class="card">
+            <h2>Lorem, ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Modi, necessitatibus?</p>
+        </div>
+        <div class="card">
+            <h2>Lorem, ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Modi, necessitatibus?</p>
+        </div>
+        <div class="card">
+            <h2>Lorem, ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Modi, necessitatibus?</p>
+        </div>
+        <div class="card">
+            <h2>Lorem, ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Modi, necessitatibus?</p>
+        </div>
+        <div class="card">
+            <h2>Lorem, ipsum.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae. Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Modi, necessitatibus?</p>
+        </div>
+
+    </div>
+</body>
+
+</html>
