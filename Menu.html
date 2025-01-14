@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <style>
+        :root {
+            --primary-color: #11121a;
+            --hover-color: #272832;
+            --accent-color: #0071FF;
+            --text-color: #c9c9c9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            color: var(--text-color);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+                'Open Sans', 'Helvetica Neue', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
+            /* dynamic view height */
+            background-color: var(--primary-color);
+        }
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary-color);
+            border-bottom: 1px solid var(--text-color);
+            padding: 8px 2em;
+            position: sticky;
+            top: 0;
+        }
+
+        ul {
+            display: flex;
+            width: 60%;
+        }
+
+        li {
+            list-style: none;
+            width: 100%;
+            text-align: center;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+            padding: 1em;
+            display: block;
+            transition: all 0.3s ease-in-out;
+        }
+
+        main {
+            padding: min(5em, 7%);
+            /* 5em or 7% whichever is smaller */
+        }
+
+        a:hover {
+            background-color: var(--hover-color);
+        }
+
+        .accent-link {
+            background-color: var(--accent-color);
+        }
+
+        a.active {
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        #open-sidebar-button {
+            right: 0;
+            display: none;
+            background: none;
+            border: none;
+            padding: 10px;
+            margin-left: auto;
+            cursor: pointer;
+            color: #c9c9c9;
+            border: 1px solid var(--text-color);
+        }
+
+        #close-sidebar-button {
+            display: none;
+            background: none;
+            border: none;
+            padding: 1em;
+            margin-left: auto;
+            cursor: pointer;
+            color: #c9c9c9;
+            left: 0;
+            bottom: 10;
+        }
+
+        #overlay {
+            background-color: rgb(0, 0, 0, 0.5);
+            position: fixed;
+            inset: 0;
+            z-index: 9;
+            display: none;
+        }
+
+        @media screen and (max-width: 700px) {
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid var(--text-color);
+                padding: 8px 2em;
+            }
+
+            ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: min(15em, 100%);
+                z-index: 10;
+                border-left: 1px solid var(--hover-color);
+                flex-direction: column;
+                transition: right 300ms ease-in-out;
+                background-color: #000000;
+            }
+
+
+            ul.show {
+                right: 0;
+                width: 60%;
+            }
+
+            ul.show~#overlay {
+                display: block;
+            }
+
+            #open-sidebar-button,
+            #close-sidebar-button {
+                display: block;
+            }
+
+        }
+    </style>
+
+    <nav>
+        <div class="logo">
+            <h2>Menu</h2>
+        </div>
+
+        <ul id="ul">
+            <button id="close-sidebar-button" aria-label="close sidebar"><i class="fas fa-bars" onclick="closeSidebar()"></i></button>
+            <li><a href="#" class="active" aria-current="page">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#" class="accent-link">Login</a></li>
+        </ul>
+        <div id="overlay" onclick="closeSidebar()" aria-hidden="true"></div>
+        <button id="open-sidebar-button" onclick="openSidebar()" aria-label="open Sidebar" aria-expanded="false" aria-controls="ul"><i class="fa-solid fa-bars"></i>
+        </button>
+    </nav>
+
+
+    <main>
+        <h1>Accessible Navbar</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat doloribus tempora soluta dolores corporis
+            numquam ipsam aut voluptatem labore natus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Obcaecati veniam animi qui itaque quia doloribus fugiat ut tempore libero nisi!</p>
+        <h1>Accessible Navbar</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat doloribus tempora soluta dolores corporis
+            numquam ipsam aut voluptatem labore natus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Obcaecati veniam animi qui itaque quia doloribus fugiat ut tempore libero nisi!</p>
+        <h1>Accessible Navbar</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat doloribus tempora soluta dolores corporis
+            numquam ipsam aut voluptatem labore natus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Obcaecati veniam animi qui itaque quia doloribus fugiat ut tempore libero nisi!</p>
+        <h1 id="about">About section</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat doloribus tempora soluta dolores corporis
+            numquam ipsam aut voluptatem labore natus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Obcaecati veniam animi qui itaque quia doloribus fugiat ut tempore libero nisi!</p>
+    </main>
+
+
+</body>
+<script>
+    const ul = document.getElementById('ul');
+
+    function openSidebar() {
+        ul.classList.add('show');
+
+    }
+    function closeSidebar() {
+        ul.classList.remove('show');
+    }
+</script>
+
+</html>
