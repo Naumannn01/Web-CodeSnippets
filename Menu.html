@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
+    <title>Custom Navbar</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -12,10 +12,10 @@
 <body>
     <style>
         :root {
-            --primary-color: #11121a;
-            --hover-color: #272832;
-            --accent-color: #0071FF;
-            --text-color: #c9c9c9;
+            --custom-primary-color: #11121a;
+            --custom-hover-color: #272832;
+            --custom-accent-color: #0071FF;
+            --custom-text-color: #c9c9c9;
         }
 
         * {
@@ -25,7 +25,7 @@
         }
 
         html {
-            color: var(--text-color);
+            color: var(--custom-text-color);
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
                 'Open Sans', 'Helvetica Neue', sans-serif;
             scroll-behavior: smooth;
@@ -34,60 +34,57 @@
         body {
             min-height: 100vh;
             min-height: 100dvh;
-            /* dynamic view height */
-            background-color: var(--primary-color);
+            background-color: var(--custom-primary-color);
         }
 
-        nav {
+        .custom-nav {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: var(--primary-color);
-            border-bottom: 1px solid var(--text-color);
+            background-color: var(--custom-primary-color);
+            border-bottom: 1px solid var(--custom-text-color);
             padding: 8px 2em;
             position: sticky;
             top: 0;
         }
 
-        ul {
+        .custom-ul {
             display: flex;
             width: 60%;
         }
 
-        li {
+        .custom-li {
             list-style: none;
             width: 100%;
             text-align: center;
         }
 
-
-        a {
+        .custom-link {
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--custom-text-color);
             padding: 1em;
             display: block;
             transition: all 0.3s ease-in-out;
         }
 
-        main {
+        .custom-main {
             padding: min(5em, 7%);
-            /* 5em or 7% whichever is smaller */
         }
 
-        a:hover {
-            background-color: var(--hover-color);
+        .custom-link:hover {
+            background-color: var(--custom-hover-color);
         }
 
-        .accent-link {
-            background-color: var(--accent-color);
+        .custom-accent-link {
+            background-color: var(--custom-accent-color);
         }
 
-        a.active {
-            border-bottom: 3px solid var(--accent-color);
+        .custom-link.active {
+            border-bottom: 3px solid var(--custom-accent-color);
         }
 
-        #open-sidebar-button {
+        .custom-open-sidebar-button {
             right: 0;
             display: none;
             background: none;
@@ -96,10 +93,10 @@
             margin-left: auto;
             cursor: pointer;
             color: #c9c9c9;
-            border: 1px solid var(--text-color);
+            border: 1px solid var(--custom-text-color);
         }
 
-        #close-sidebar-button {
+        .custom-close-sidebar-button {
             display: none;
             background: none;
             border: none;
@@ -111,7 +108,7 @@
             bottom: 10;
         }
 
-        #overlay {
+        .custom-overlay {
             background-color: rgb(0, 0, 0, 0.5);
             position: fixed;
             inset: 0;
@@ -120,94 +117,78 @@
         }
 
         @media screen and (max-width: 700px) {
-            nav {
+            .custom-nav {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                border-bottom: 1px solid var(--text-color);
+                border-bottom: 1px solid var(--custom-text-color);
                 padding: 8px 2em;
             }
 
-            ul {
+            .custom-ul {
                 position: fixed;
                 top: 0;
                 right: -100%;
                 height: 100vh;
                 width: min(15em, 100%);
                 z-index: 10;
-                border-left: 1px solid var(--hover-color);
+                border-left: 1px solid var(--custom-hover-color);
                 flex-direction: column;
                 transition: right 300ms ease-in-out;
                 background-color: #000000;
             }
 
-
-            ul.show {
+            .custom-ul.show {
                 right: 0;
                 width: 60%;
             }
 
-            ul.show~#overlay {
+            .custom-ul.show~.custom-overlay {
                 display: block;
             }
 
-            #open-sidebar-button,
-            #close-sidebar-button {
+            .custom-open-sidebar-button,
+            .custom-close-sidebar-button {
                 display: block;
             }
-
         }
     </style>
 
-    <nav>
-        <div class="logo">
+    <nav class="custom-nav">
+        <div class="custom-logo">
             <h2>Menu</h2>
         </div>
 
-        <ul id="ul">
-            <button id="close-sidebar-button" aria-label="close sidebar"><i class="fas fa-bars" onclick="closeSidebar()"></i></button>
-            <li><a href="#" class="active" aria-current="page">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#" class="accent-link">Login</a></li>
+        <ul class="custom-ul" id="custom-ul">
+            <button class="custom-close-sidebar-button" aria-label="close sidebar"><i class="fas fa-bars" onclick="customCloseSidebar()"></i></button>
+            <li class="custom-li"><a href="#" class="custom-link active" aria-current="page">Home</a></li>
+            <li class="custom-li"><a href="#about" class="custom-link">About</a></li>
+            <li class="custom-li"><a href="#" class="custom-link">Features</a></li>
+            <li class="custom-li"><a href="#" class="custom-link">Pricing</a></li>
+            <li class="custom-li"><a href="#" class="custom-accent-link custom-link">Login</a></li>
         </ul>
-        <div id="overlay" onclick="closeSidebar()" aria-hidden="true"></div>
-        <button id="open-sidebar-button" onclick="openSidebar()" aria-label="open Sidebar" aria-expanded="false" aria-controls="ul"><i class="fa-solid fa-bars"></i>
+        <div class="custom-overlay" onclick="customCloseSidebar()" aria-hidden="true"></div>
+        <button class="custom-open-sidebar-button" onclick="customOpenSidebar()" aria-label="open Sidebar" aria-expanded="false" aria-controls="custom-ul"><i class="fa-solid fa-bars"></i>
         </button>
     </nav>
 
-
-    <main>
+    <main class="custom-main">
         <h1>Accessible Navbar</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat doloribus tempora soluta dolores corporis
-            numquam ipsam aut voluptatem labore natus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Obcaecati veniam animi qui itaque quia doloribus fugiat ut tempore libero nisi!</p>
-        <h1>Accessible Navbar</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat doloribus tempora soluta dolores corporis
-            numquam ipsam aut voluptatem labore natus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Obcaecati veniam animi qui itaque quia doloribus fugiat ut tempore libero nisi!</p>
-        <h1>Accessible Navbar</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat doloribus tempora soluta dolores corporis
-            numquam ipsam aut voluptatem labore natus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Obcaecati veniam animi qui itaque quia doloribus fugiat ut tempore libero nisi!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit... Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit ad consectetur error dolorem provident, obcaecati repellat placeat sed quasi possimus fugit nam deserunt animi quam eos deleniti suscipit itaque maxime ducimus magnam ipsa in? Ut accusantium sequi ad voluptatem explicabo nulla repudiandae quidem earum sapiente! Numquam nemo veritatis fugiat facilis praesentium perspiciatis nam illum eveniet aspernatur. Error architecto quia doloribus? Tenetur, consectetur dignissimos ad placeat porro perferendis velit sapiente totam deserunt illo eum rerum natus non corporis magnam rem dolore libero illum qui! Pariatur debitis, corrupti odio asperiores doloribus ad aliquid, vel voluptatum sunt error tempore sequi eaque expedita eius quisquam similique, totam alias! Quo ipsam velit omnis consectetur, illo modi fugit facilis ab cupiditate unde perferendis minima eum minus inventore possimus temporibus fugiat quae. Officia consectetur sint aut quod delectus nisi odio ratione consequatur dolore, dolorem magni autem magnam? Ipsam itaque ab expedita alias voluptate earum illo nihil quia corporis maxime. Assumenda incidunt corrupti ducimus? Sed tenetur similique earum at nobis commodi odit numquam, deserunt non exercitationem, sequi maiores, sunt repellat unde iste esse deleniti eveniet reiciendis minus quaerat nisi! Excepturi, ad perspiciatis blanditiis odit optio hic culpa voluptate omnis pariatur reprehenderit quis aspernatur, iure nihil nemo delectus quos cupiditate ex dolor distinctio dolore officiis laborum ducimus accusamus? Atque adipisci veritatis corrupti quos ipsum commodi? Aperiam, non excepturi reiciendis incidunt quas ullam aspernatur accusamus voluptate necessitatibus blanditiis, nam magni sequi facere nobis, eius maxime saepe rerum! Hic excepturi reiciendis autem ab molestiae, minima explicabo, alias laborum delectus vero nisi dolor, molestias laboriosam ut dicta ducimus libero blanditiis dolores architecto assumenda! Saepe ut adipisci voluptatibus repellendus alias eos harum fuga ex nulla mollitia deserunt, modi velit eveniet excepturi atque ipsam odio totam voluptatem iusto quidem beatae enim dicta itaque! Ex nobis vel magni cum, aperiam laudantium numquam incidunt atque id adipisci pariatur explicabo vero illo eveniet dolorum obcaecati accusantium consectetur aut placeat, sequi dolores! Tenetur dolorum dolores aliquid eos repellat sint odio exercitationem, incidunt corporis illo reiciendis ullam? Quidem praesentium molestias, itaque sequi inventore illo iste vitae. Amet at temporibus, cum molestias assumenda autem, nobis architecto itaque cumque in saepe exercitationem ducimus praesentium odio suscipit sapiente illum hic! Consequuntur magni laudantium quod fugit quaerat, animi reiciendis deserunt veritatis ad quos, amet facilis nulla, sed eius dolor temporibus. Sed exercitationem sint temporibus rem natus, nesciunt explicabo nobis harum perferendis quasi qui aspernatur sunt quam eligendi nulla ea, accusamus voluptatem nemo corrupti voluptatum esse earum. Accusamus quasi, delectus voluptates earum iste quos ducimus nemo cumque laboriosam nihil odio tenetur magni esse sapiente est reiciendis suscipit eligendi, sint dolor error ipsam temporibus. Laudantium, magni quod, tempore provident velit quisquam quas iure fugit voluptas cum dolores odio. Sunt explicabo obcaecati tempore. Alias inventore obcaecati quasi illum sint est ipsum quae perspiciatis autem ipsa quas minus, sed aut! Eligendi facilis praesentium officia temporibus illum dolorem nobis iste! Aliquam alias libero incidunt mollitia quia, illum quidem ea omnis eos voluptatem dolores corporis quam et accusamus soluta repellat in maxime. Ducimus, aspernatur reprehenderit! Reiciendis odio eveniet magni.</p>
         <h1 id="about">About section</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat doloribus tempora soluta dolores corporis
-            numquam ipsam aut voluptatem labore natus. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Obcaecati veniam animi qui itaque quia doloribus fugiat ut tempore libero nisi!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
     </main>
-
 
 </body>
 <script>
-    const ul = document.getElementById('ul');
+    const customUl = document.getElementById('custom-ul');
 
-    function openSidebar() {
-        ul.classList.add('show');
-
+    function customOpenSidebar() {
+        customUl.classList.add('show');
     }
-    function closeSidebar() {
-        ul.classList.remove('show');
+
+    function customCloseSidebar() {
+        customUl.classList.remove('show');
     }
 </script>
 
