@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preloader</title>
+</head>
+<body>
+    <style>
+        #preloader {
+            /* You can download any gif via google */
+            background: #ffffff url(loader.gif) no-repeat center center;
+            background-size: 5%;
+            height: 100dvh;
+            width: 100%;
+            position: fixed;
+            z-index: 100;
+        }
+
+    </style>
+    <div id="preloader">
+
+    </div>
+    <script>
+        var loader =document.getElementById('preloader');
+        window.addEventListener('load',function(){
+            loader.style.display='none';
+        })
+    </script>
+</body>
+</html>
