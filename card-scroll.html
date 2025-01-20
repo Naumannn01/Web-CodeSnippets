@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    
+</head>
+<!-- Will work on in mobile devices -->
+<body>
+    <style>
+        body{
+            font-family: "Oswald";
+            background: #000;
+            padding: 50px;
+        }
+        .card-container{
+            display: flex;
+            gap: 20px;
+            width: 300px;
+            overflow-x: scroll;
+            scroll-snap-type:x mandatory;
+        }
+        h2{
+            color: #000;
+        }
+        .card{
+            scroll-snap-align: center;
+            box-sizing: border-box;
+            padding: 20px 30px;
+            flex-shrink:0;
+            width: 300px;
+            background-color: white;
+            border-radius: 14px;
+            text-align: center;
+        }
+        p{
+            color: #817979;
+        }
+    </style>
+    <div class="card-container">
+       <div class="card">
+        <h2>Card 2</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum amet, maiores molestiae recusandae, hic neque unde totam tenetur dignissimos, officiis at? Magni est non consectetur dolor. Iste repudiandae atque distinctio debitis quae quidem expedita soluta ex assumenda voluptate. Officia.
+        </p>
+       </div> 
+       <div class="card">
+        <h2>Card 3</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum amet, maiores molestiae recusandae, hic neque unde totam tenetur dignissimos, officiis at? Magni est non consectetur dolor. Iste repudiandae atque distinctio debitis quae quidem expedita soluta ex assumenda voluptate. Officia.
+        </p>
+       </div> 
+       <div class="card">
+        <h2>Card 4</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum amet, maiores molestiae recusandae, hic neque unde totam tenetur dignissimos, officiis at? Magni est non consectetur dolor. Iste repudiandae atque distinctio debitis quae quidem expedita soluta ex assumenda voluptate. Officia.
+        </p>
+       </div> 
+       <div class="card">
+        <h2>Card 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ipsum amet, maiores molestiae recusandae, hic neque unde totam tenetur dignissimos, officiis at? Magni est non consectetur dolor. Iste repudiandae atque distinctio debitis quae quidem expedita soluta ex assumenda voluptate. Officia.
+        </p>
+       </div> 
+    </div>
+</body>
+</html>
